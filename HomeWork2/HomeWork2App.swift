@@ -11,7 +11,41 @@ import SwiftUI
 struct HomeWork2App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CustomTabBarView(model: CustomTabBarModel(screens: getScreens()))
+                .environmentObject(NavigationService.shared)
         }
+    }
+}
+
+extension HomeWork2App {
+    func getScreens() -> [TabScreen] {
+        return [getFirstScreen(), getThirdScreen(), getSecondScreen()]
+    }
+    
+    func getFirstScreen() -> TabScreen {
+        let contentView = StockListScreen(model: StockListModel())
+            .environmentObject(NavigationService.shared)
+            .environmentObject(StoreService.shared)
+        let navigationView = CustomNavigationView<StockListScreen>(transition: .none, view: contentView.anyView)
+        
+        return TabScreen(item: navigationView.anyView, tabItem: StockListScreen.tabItem.anyView)
+    }
+    
+    func getSecondScreen() -> TabScreen {
+        let contentView = CalendarScreen(model: CalendarModel())
+            .environmentObject(NavigationService.shared)
+            .environmentObject(StoreService.shared)
+        let navigationView = CustomNavigationView<CalendarScreen>(transition: .none, view: contentView.anyView)
+        
+        return TabScreen(item: navigationView.anyView, tabItem: CalendarScreen.tabItem.anyView)
+    }
+    
+    func getThirdScreen() -> TabScreen {
+        let contentView = FavoriteScreen(model: FavoriteModel(StoreService.shared))
+            .environmentObject(NavigationService.shared)
+            .environmentObject(StoreService.shared)
+        let navigationView = CustomNavigationView<FavoriteScreen>(transition: .none, view: contentView.anyView)
+        
+        return TabScreen(item: navigationView.anyView, tabItem: FavoriteScreen.tabItem.anyView)
     }
 }
