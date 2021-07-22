@@ -10,8 +10,12 @@ import SwiftUI
 final class NavigationService: ObservableObject {
     static let shared = NavigationService()
     
-    private weak var navigation: CustomNavigationViewModel?
-    private weak var tabBar: CustomTabBarModel?
+    private var navigation: CustomNavigationViewModel?
+    private var tabBar: CustomTabBarModel?
+    
+    var selectedTab: Int {
+        return tabBar?.selectedIndex ?? 0
+    }
     
     func registerTabBarView(with model: CustomTabBarModel) {
         self.tabBar = model

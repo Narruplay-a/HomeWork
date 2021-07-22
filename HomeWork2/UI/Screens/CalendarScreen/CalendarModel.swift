@@ -14,8 +14,8 @@ final class CalendarModel: ObservableObject {
     func requestData() {
         guard ipoData.count == 0 else { return }
 
-        AlphaVantageRequests.getIPOCalendar { data, error in
-            guard let data = data else { return }
+        AlphaVantageRequests.getIPOCalendar { [weak self] data, error in
+            guard let self = self, let data = data else { return }
             
             let stream = InputStream(data: data)
             let csv = try! CSVReader(stream: stream, hasHeaderRow: true)

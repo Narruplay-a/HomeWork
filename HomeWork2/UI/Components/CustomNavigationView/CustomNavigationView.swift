@@ -17,9 +17,9 @@ public struct CustomNavigationView<Content>: View where Content: View {
     
     public init(transition: NavTransition,
                 easing: Animation = .easeOut(duration: 0.33),
-                view: AnyView) {
+                view: AnyView, id: Int) {
         model = CustomNavigationViewModel(easing: easing,
-                                         screenStack: ScreenStack(screens: [Screen(screen: view)]))
+                                          screenStack: ScreenStack(screens: [Screen(screen: view)]), id: id)
         switch transition {
             case .custom(let trans):
                 transitions = (trans, trans)
@@ -30,9 +30,9 @@ public struct CustomNavigationView<Content>: View where Content: View {
     
     public init(transition: NavTransition,
                 easing: Animation = .easeOut(duration: 0.33),
-                navigationStack: [AnyView]) {
+                navigationStack: [AnyView], id: Int) {
         let stack: [Screen] = navigationStack.map { Screen(screen: $0) }
-        model = CustomNavigationViewModel(easing: easing, screenStack: ScreenStack(screens: stack))
+        model = CustomNavigationViewModel(easing: easing, screenStack: ScreenStack(screens: stack), id: id)
         
         switch transition {
             case .custom(let trans):
@@ -59,6 +59,7 @@ public struct CustomNavigationView<Content>: View where Content: View {
         }
         .ignoresSafeArea()
         .onAppear {
+            print(String(format: "Appear: %ld", model.id))
             navigationService.registerNavigationView(with: model)
         }.onReceive(model.navigationSubject, perform: { _ in
             self.model.pop()

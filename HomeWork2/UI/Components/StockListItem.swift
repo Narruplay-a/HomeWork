@@ -34,8 +34,8 @@ struct StockListItem: View {
             if !hideFavoriteIcon && !storeService.isFavorite(stock.symbol) {
                 Image("star")
                     .resizable()
-                    .frame(width: 35, height: 35)
-                    .padding(.leading, 20)
+                    .frame(width: 30, height: 30)
+                    .padding(.leading, 15)
                     .onTapGesture {
                         self.storeService.addToFavorite(stock)
                     }

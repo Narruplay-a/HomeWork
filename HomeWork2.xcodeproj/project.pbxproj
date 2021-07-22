@@ -15,6 +15,7 @@
 		59383F60269CB09C0001C140 /* CustomTabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59383F5E269CB09C0001C140 /* CustomTabBarModel.swift */; };
 		59383F62269CB0DF0001C140 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59383F61269CB0DF0001C140 /* LazyView.swift */; };
 		59383F65269CB6650001C140 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59383F64269CB6650001C140 /* ViewExtension.swift */; };
+		593FC6E426A95D6B0037ABA1 /* ErrorModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593FC6E326A95D6B0037ABA1 /* ErrorModal.swift */; };
 		597EF239269EF1EA00E1C87D /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF236269EF1EA00E1C87D /* Stock.swift */; };
 		597EF23A269EF1EA00E1C87D /* StockList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF237269EF1EA00E1C87D /* StockList.swift */; };
 		597EF23B269EF1EA00E1C87D /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF238269EF1EA00E1C87D /* ErrorModel.swift */; };
@@ -82,6 +83,7 @@
 		59383F5E269CB09C0001C140 /* CustomTabBarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarModel.swift; sourceTree = "<group>"; };
 		59383F61269CB0DF0001C140 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		59383F64269CB6650001C140 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		593FC6E326A95D6B0037ABA1 /* ErrorModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModal.swift; sourceTree = "<group>"; };
 		597EF236269EF1EA00E1C87D /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		597EF237269EF1EA00E1C87D /* StockList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockList.swift; sourceTree = "<group>"; };
 		597EF238269EF1EA00E1C87D /* ErrorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				597EF28726A0719900E1C87D /* LoadingModal.swift */,
 				597EF28D26A170FA00E1C87D /* TickerTempView.swift */,
 				597EF29C26A5987700E1C87D /* IPOItem.swift */,
+				593FC6E326A95D6B0037ABA1 /* ErrorModal.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				59383F58269CAF280001C140 /* CustomNavigationBarView.swift in Sources */,
 				597EF29126A17AA900E1C87D /* CalendarScreen.swift in Sources */,
 				597EF26826A0339700E1C87D /* AlphaVantageRequests.swift in Sources */,
+				593FC6E426A95D6B0037ABA1 /* ErrorModal.swift in Sources */,
 				597EF24F269EF2C700E1C87D /* CodableHelper.swift in Sources */,
 				597EF264269F4C9400E1C87D /* StockExchange.swift in Sources */,
 				597EF257269EF2F900E1C87D /* MarketstackRequests.swift in Sources */,

@@ -33,17 +33,18 @@ struct StockListScreen: View {
                             self.navigationService.show(view:
                                                             CompanyOverviewScreen(model: CompanyOverviewModel(symbol: stock.symbol)).anyView)
                         }.onAppear {
-                            if model.stockData.last?.symbol == stock.symbol {
+                            if model.stockData.count > 10 && model.stockData.last?.symbol == stock.symbol {
                                 model.requestAdditionalData()
                             }
                         }
                     
-                    if model.stockData.last?.symbol == stock.symbol {
+                    if model.stockData.count > 10 && model.stockData.last?.symbol == stock.symbol {
                         Text("Загрузка данных..")
                             .padding(.all, 20)
                     }
                 }
             }
+            
             .padding(.top, 20)
             .frame(maxHeight: .infinity)
         }

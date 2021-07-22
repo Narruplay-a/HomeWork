@@ -19,15 +19,8 @@ struct IPOItem: View {
                 Text(data.symbol)
                     .font(.system(.headline))
             }
-//            Spacer()
             Spacer()
-//            VStack(alignment: .leading, spacing: 10) {
-//                Text("Название:")
-//                    .font(.system(.caption))
-//                    .foregroundColor(.gray)
-//                Text(data.name)
-//                    .font(.system(.headline))
-//            }
+
             VStack(alignment: .leading, spacing: 10) {
                 Text("Дата:")
                     .font(.system(.caption))

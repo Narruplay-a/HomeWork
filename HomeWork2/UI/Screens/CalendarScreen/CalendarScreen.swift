@@ -12,20 +12,39 @@ struct CalendarScreen: View {
     @EnvironmentObject var navigationService: NavigationService
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            List(model.ipoData) { ipoItemData in
-                IPOItem(data: ipoItemData)
-                    .onTapGesture {
-                        self.navigationService.show(view:
-                                                        CompanyOverviewScreen(model: CompanyOverviewModel(symbol: ipoItemData.symbol)).anyView)
-                    }
+        VStack(spacing: 0) {
+            ZStack(alignment: .bottomLeading) {
+                HStack {
+                    Spacer()
+                    Text("Календарь IPO")
+                        .lineLimit(0)
+                        .font(.system(size: 18).bold())
+                        .fixedSize(horizontal: false, vertical: false)
+                        .padding(.bottom, 10)
+                    Spacer()
+                }
+                
+                VStack {
+                    Spacer()
+                    Divider()
+                        .frame(height: 1)
+                        .background(Color.gray.opacity(0.05))
+                }
             }
-            .padding(.top, 20)
-            .frame(maxHeight: .infinity)
+            .frame(maxWidth: .infinity)
+            .frame(height: 80)
+            
+            VStack(alignment: .leading, spacing: 0) {
+                List(model.ipoData) { ipoItemData in
+                    IPOItem(data: ipoItemData)
+                }
+                .padding(.top, 20)
+                .frame(maxHeight: .infinity)
+            }
         }
+        .frame(maxHeight: .infinity)
+        .ignoresSafeArea()
         .onAppear {
-            navigationService.showTabBar()
-            navigationService.updateNavigation(with: "Календарь IPO")
             model.requestData()
         }
     }
@@ -33,7 +52,7 @@ struct CalendarScreen: View {
     static var tabItem: some View {
         VStack {
             Image(systemName: "calendar")
-            Text("Календарь")
+            Text("Календарь IPO")
         }
     }
 }

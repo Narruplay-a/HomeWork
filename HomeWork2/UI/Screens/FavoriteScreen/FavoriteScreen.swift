@@ -13,24 +13,43 @@ struct FavoriteScreen: View {
     @EnvironmentObject var storeService: StoreService
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            List {
-                ForEach(model.data, id: \.id) { stock in
-                    StockListItem(stock: stock)
-                        .onTapGesture {
-                            self.navigationService.show(view:
-                                                            CompanyOverviewScreen(model: CompanyOverviewModel(symbol: stock.symbol)).anyView)
-                        }
-                }.onDelete { offset in
-                    storeService.removeFromFavorite(offset)
+        VStack(spacing: 0) {
+            ZStack(alignment: .bottomLeading) {
+                HStack {
+                    Spacer()
+                    Text("Избранное")
+                        .lineLimit(0)
+                        .font(.system(size: 18).bold())
+                        .fixedSize(horizontal: false, vertical: false)
+                        .padding(.bottom, 10)
+                    Spacer()
+                }
+                
+                VStack {
+                    Spacer()
+                    Divider()
+                        .frame(height: 1)
+                        .background(Color.gray.opacity(0.05))
                 }
             }
-            .padding(.top, 20)
+            .frame(maxWidth: .infinity)
+            .frame(height: 80)
+            
+            VStack(alignment: .leading, spacing: 0) {
+                List {
+                    ForEach(model.data, id: \.id) { stock in
+                        StockListItem(stock: stock)
+                    }.onDelete { offset in
+                        storeService.removeFromFavorite(offset)
+                    }
+                }
+                .padding(.top, 20)
+            }
             .frame(maxHeight: .infinity)
+            Spacer()
         }
-        .onAppear {
-            navigationService.updateNavigation(with: "Избранное")
-        }
+        .frame(maxHeight: .infinity)
+        .ignoresSafeArea()
     }
     
     static var tabItem: some View {

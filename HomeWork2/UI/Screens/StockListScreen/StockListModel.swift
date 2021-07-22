@@ -46,7 +46,7 @@ final class StockListModel: ObservableObject {
             russiaRequestOffset += 20
         }
         
-//        requestData()
+        requestData()
     }
     
     deinit {
@@ -58,37 +58,35 @@ private extension StockListModel {
     func requestData() {
         isDataLoading = true
         
-    
-        
-//        MarketstackRequests.getStockList(exchange: selectedCountry.rawValue, outputSize: requestLimit, offset: currentOffset) { [weak self] list, _ in
-//            guard let self = self, let stocks = list?.data else { return }
-//
-//            switch self.selectedCountry {
-//            case .usa:
-//                self.usaStockData.append(contentsOf: stocks)
-//                self.stockData = self.usaStockData
-//            case .russia:
-//                self.russiaStockData.append(contentsOf: stocks)
-//                self.stockData = self.russiaStockData
-//            }
-//
-//            self.isDataLoading = false
-//        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            let data = stockListTemp.data(using: .utf8)!
-            let list = try? CodableHelper.decode(StockList.self, from: data).get()
-            
+        MarketstackRequests.getStockList(exchange: selectedCountry.rawValue, outputSize: requestLimit, offset: currentOffset) { [weak self] list, _ in
+            guard let self = self, let stocks = list?.data else { return }
+
             switch self.selectedCountry {
             case .usa:
-                self.usaStockData.append(contentsOf: list!.data!)
+                self.usaStockData.append(contentsOf: stocks)
                 self.stockData = self.usaStockData
             case .russia:
-                self.russiaStockData.append(contentsOf: list!.data!)
+                self.russiaStockData.append(contentsOf: stocks)
                 self.stockData = self.russiaStockData
             }
 
             self.isDataLoading = false
         }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            let data = stockListTemp.data(using: .utf8)!
+//            let list = try? CodableHelper.decode(StockList.self, from: data).get()
+//            
+//            switch self.selectedCountry {
+//            case .usa:
+//                self.usaStockData.append(contentsOf: list!.data!)
+//                self.stockData = self.usaStockData
+//            case .russia:
+//                self.russiaStockData.append(contentsOf: list!.data!)
+//                self.stockData = self.russiaStockData
+//            }
+//
+//            self.isDataLoading = false
+//        }
     }
     
     func countrySelectiondDidChange() {

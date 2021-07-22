@@ -75,12 +75,18 @@ struct CompanyOverviewScreen: View {
             navigationService.hideTabBar()
             model.loadCompanyData()
         }
-//        .onReceive(model.$isDataLoading) { value in
-//            if value {
-//                navigationService.present(view: LoadingModal().anyView)
-//            } else {
-//                navigationService.dismiss()
-//            }
-//        }
+        .onReceive(model.$isDataLoading) { value in
+            if value {
+                navigationService.present(view: LoadingModal().anyView)
+            } else {
+                navigationService.dismiss()
+            }
+        }.onReceive(model.$isDataEmpty, perform: { value in
+            if value {
+                navigationService.present(view: ErrorModal(shouldShowModal: $model.isDataEmpty).anyView)
+            } else {
+                navigationService.dismiss()
+            }
+        })
     }
 }

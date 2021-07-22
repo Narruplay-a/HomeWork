@@ -27,7 +27,7 @@ struct CustomTabBarView: View {
                     }
                 }
             }
-            
+
             if showView, let view = model.viewToPresent {
                 view
             }
