@@ -29,11 +29,10 @@ final class CustomNavigationViewModel: ObservableObject {
     var id: Int = 0
  
     private(set) var navigationIndex: Int = 0
-    private let easing: Animation
+    private let easing: Animation = Animation.easeInOut(duration: 0.3)
     
-    init(easing: Animation, screenStack: ScreenStack, id: Int) {
+    init(screenStack: ScreenStack, id: Int) {
         self.id = id
-        self.easing = easing
         self.screenStack = screenStack
         self.currentScreen = screenStack.top()
         navigationIndex = screenStack.screenCount - 1
@@ -41,7 +40,6 @@ final class CustomNavigationViewModel: ObservableObject {
     
     func push<S: View>(_ screenView: S) {
         shouldShowbackButton = true
-//        print(String(format: "Push: %ld", id))
         withAnimation(easing) {
             navigationType = .push
             let screen = Screen(screen: AnyView(screenView))
@@ -52,7 +50,6 @@ final class CustomNavigationViewModel: ObservableObject {
     
     func pop(to: PopDestination = .previous) {
         shouldShowbackButton = !(navigationIndex == 1 || to == .root)
-//        print(String(format: "Pop: %ld", id))
         withAnimation(easing) {
             navigationType = .pop
             switch to {
@@ -110,9 +107,4 @@ enum NavType {
 public enum PopDestination {
     case previous
     case root
-}
-
-public enum NavTransition {
-    case none
-    case custom(AnyTransition)
 }

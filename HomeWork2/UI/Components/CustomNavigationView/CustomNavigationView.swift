@@ -13,34 +13,15 @@ public struct CustomNavigationView<Content>: View where Content: View {
     @ObservedObject var model: CustomNavigationViewModel
 
     private let navigationBarHeight: CGFloat = 80
-    private let transitions: (push: AnyTransition, pop: AnyTransition)
+    private let transitions: (push: AnyTransition, pop: AnyTransition) = (AnyTransition.opacity, AnyTransition.opacity)
     
-    public init(transition: NavTransition,
-                easing: Animation = .easeOut(duration: 0.33),
-                view: AnyView, id: Int) {
-        model = CustomNavigationViewModel(easing: easing,
-                                          screenStack: ScreenStack(screens: [Screen(screen: view)]), id: id)
-        switch transition {
-            case .custom(let trans):
-                transitions = (trans, trans)
-            case .none:
-                transitions = (.identity, .identity)
-        }
+    public init(view: AnyView, id: Int) {
+        model = CustomNavigationViewModel(screenStack: ScreenStack(screens: [Screen(screen: view)]), id: id)
     }
     
-    public init(transition: NavTransition,
-                easing: Animation = .easeOut(duration: 0.33),
-                navigationStack: [AnyView], id: Int) {
+    public init(navigationStack: [AnyView], id: Int) {
         let stack: [Screen] = navigationStack.map { Screen(screen: $0) }
-        model = CustomNavigationViewModel(easing: easing, screenStack: ScreenStack(screens: stack), id: id)
-        
-        switch transition {
-            case .custom(let trans):
-                transitions = (trans, trans)
-            case .none:
-                transitions = (.identity, .identity)
-
-        }
+        model = CustomNavigationViewModel(screenStack: ScreenStack(screens: stack), id: id)
     }
     
     public var body: some View {

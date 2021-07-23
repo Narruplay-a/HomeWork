@@ -75,7 +75,7 @@ private extension StockListModel {
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 //            let data = stockListTemp.data(using: .utf8)!
 //            let list = try? CodableHelper.decode(StockList.self, from: data).get()
-//            
+//
 //            switch self.selectedCountry {
 //            case .usa:
 //                self.usaStockData.append(contentsOf: list!.data!)

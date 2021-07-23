@@ -26,7 +26,7 @@ extension HomeWork2App {
         let contentView = StockListScreen(model: StockListModel())
             .environmentObject(NavigationService.shared)
             .environmentObject(StoreService.shared)
-        let navigationView = CustomNavigationView<StockListScreen>(transition: .none, view: contentView.anyView, id: 0)
+        let navigationView = CustomNavigationView<StockListScreen>(view: contentView.anyView, id: 0)
         
         return TabScreen(item: navigationView.anyView, tabItem: StockListScreen.tabItem.anyView)
     }
