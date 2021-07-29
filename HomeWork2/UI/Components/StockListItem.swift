@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import CoreServicePackage
 
 struct StockListItem: View {
-    @EnvironmentObject var storeService: StoreService
+    @Resolved var storeService: StoreProtocol
     
+    @State var reloadCell = false
+    var hideFavoriteIcon = false
     let stock: Stock
-    @State var hideFavoriteIcon = false
 
     var body: some View {
         HStack() {
+            if reloadCell { }
             VStack(alignment: .leading, spacing: 10) {
                 Text("Тикер:")
                     .font(.system(.caption))
@@ -37,6 +40,7 @@ struct StockListItem: View {
                     .frame(width: 30, height: 30)
                     .padding(.leading, 15)
                     .onTapGesture {
+                        self.reloadCell.toggle()
                         self.storeService.addToFavorite(stock)
                     }
             }

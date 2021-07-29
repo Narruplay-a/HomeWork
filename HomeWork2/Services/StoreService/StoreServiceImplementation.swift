@@ -8,15 +8,13 @@
 import SwiftUI
 import Combine
 
-final class StoreService: ObservableObject {
-    static let shared = StoreService()
-    
+final class StoreService: ObservableObject, StoreProtocol {
     @Published var favoriteData: [Stock]    = []
     
     private var containsSet: Set<String>    = .init()
     private var cancellable: AnyCancellable?
     
-    private init() {
+    init() {
         loadFavoriteData()
         cancellable = NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
             .sink { value in
@@ -37,9 +35,7 @@ final class StoreService: ObservableObject {
     func isFavorite(_ symbol: String) -> Bool {
         return containsSet.contains(symbol)
     }
-}
-
-private extension StoreService {
+    
     func saveFavoriteData() {
         let stockList = StockList(data: favoriteData)
         let payload: Data? = try? JSONEncoder().encode(stockList)

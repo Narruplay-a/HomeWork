@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
-import Combine
+import CoreServicePackage
 
 final class CompanyOverviewModel: ObservableObject {
+    @Resolved var apiService: ApiServiceProtocol
+    
     @Published var company          : Company?
     @Published var isDataLoading    : Bool = true
     @Published var isDataEmpty      : Bool = false
@@ -23,7 +25,7 @@ final class CompanyOverviewModel: ObservableObject {
         guard company == nil else { return }
         
         isDataLoading = true
-        AlphaVantageRequests.getCompanyOverview(symbol: symbol) { company, error in
+        apiService.getCompanyOverview(symbol: symbol) { company, error in
             self.isDataLoading = false
             
             if let company = company {

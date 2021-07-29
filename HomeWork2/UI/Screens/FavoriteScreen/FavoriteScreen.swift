@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import CoreServicePackage
 
 struct FavoriteScreen: View {
     @ObservedObject var model: FavoriteModel
-    @EnvironmentObject var navigationService: NavigationService
-    @EnvironmentObject var storeService: StoreService
+    @Resolved var navigationService: NavigationProtocol
+    @Resolved var storeService: StoreProtocol
     
     var body: some View {
         VStack(spacing: 0) {

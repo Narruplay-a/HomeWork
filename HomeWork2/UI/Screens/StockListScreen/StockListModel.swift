@@ -7,8 +7,11 @@
 
 import SwiftUI
 import Combine
+import CoreServicePackage
 
 final class StockListModel: ObservableObject {
+    @Resolved var apiService: ApiServiceProtocol
+    
     @Published var stockData: [Stock]               = []
     @Published var isDataLoading: Bool              = false
     @Published var segmentSelectedIndex: Int        = 0 {
@@ -30,8 +33,7 @@ final class StockListModel: ObservableObject {
     }
     
     var cancellable: AnyCancellable?
-    
-    
+
     func requestInitialData() {
         guard usaStockData.isEmpty && russiaStockData.isEmpty else { return }
         
@@ -58,7 +60,7 @@ private extension StockListModel {
     func requestData() {
         isDataLoading = true
         
-        MarketstackRequests.getStockList(exchange: selectedCountry.rawValue, outputSize: requestLimit, offset: currentOffset) { [weak self] list, _ in
+        apiService.getStockList(exchange: selectedCountry.rawValue, outputSize: requestLimit, offset: currentOffset) { [weak self] list, _ in
             guard let self = self, let stocks = list?.data else { return }
 
             switch self.selectedCountry {

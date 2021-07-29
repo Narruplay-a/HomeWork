@@ -7,27 +7,23 @@
 
 import SwiftUI
 
-final class NavigationService: ObservableObject {
-    static let shared = NavigationService()
-    
-    private var navigation: CustomNavigationViewModel?
-    private var tabBar: CustomTabBarModel?
+final class NavigationService: ObservableObject, NavigationProtocol {
+    private var navigation: NavigationModelProtocol?
+    private var tabBar: NavigationTabModelProtocol?
     
     var selectedTab: Int {
         return tabBar?.selectedIndex ?? 0
     }
     
-    func registerTabBarView(with model: CustomTabBarModel) {
+    func registerTabBarView(with model: NavigationTabModelProtocol) {
         self.tabBar = model
     }
 
-    func registerNavigationView(with model: CustomNavigationViewModel) {
+    func registerNavigationView(with model: NavigationModelProtocol) {
         self.navigation = model
     }
     
     func selectTab(with index: Int) {
-        guard index < tabBar?.screens.count ?? 0 else { return }
-        
         tabBar?.selectedIndex = index
     }
     

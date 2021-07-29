@@ -7,11 +7,14 @@
 
 import SwiftUI
 import Combine
+import CoreServicePackage
 
 struct StockListScreen: View {
-    @ObservedObject var model: StockListModel
-    @EnvironmentObject var navigationService: NavigationService
-    @EnvironmentObject var storeService: StoreService
+    @ObservedObject var model       : StockListModel
+    
+    @State var reloadList: Bool = false
+    @Resolved var navigationService : NavigationProtocol
+    @Resolved var storeService      : StoreProtocol
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {

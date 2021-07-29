@@ -7,9 +7,10 @@
 
 import SwiftUI
 import Combine
+import CoreServicePackage
 
 public struct CustomNavigationView<Content>: View where Content: View {
-    @EnvironmentObject var navigationService: NavigationService
+    @Resolved var navigationService: NavigationProtocol
     @ObservedObject var model: CustomNavigationViewModel
 
     private let navigationBarHeight: CGFloat = 80

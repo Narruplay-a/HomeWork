@@ -7,8 +7,9 @@
 
 import SwiftUI
 import Combine
+import CoreServicePackage
 
-final class CustomNavigationViewModel: ObservableObject {
+final class CustomNavigationViewModel: ObservableObject, NavigationModelProtocol {
     @Published var currentScreen: Screen?
     @Published var shouldShowNavigationBar  : Bool      = true
     @Published var shouldShowbackButton     : Bool      = false
@@ -102,9 +103,4 @@ struct Screen: Identifiable, Equatable {
 enum NavType {
     case push
     case pop
-}
-
-public enum PopDestination {
-    case previous
-    case root
 }

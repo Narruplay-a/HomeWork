@@ -7,14 +7,19 @@
 
 import SwiftUI
 import Combine
+import CoreServicePackage
 
 final class FavoriteModel: ObservableObject {
+    @Resolved var storeService: StoreProtocol
     @Published var data: [Stock] = []
     
     private var cancellable: AnyCancellable?
     
-    init(_ storeService: StoreService) {
+    init() {
         data = storeService.favoriteData
-        cancellable = storeService.$favoriteData.assign(to: \.data, on: self)
+        
+        if let storeService = storeService as? StoreService {
+            cancellable = storeService.$favoriteData.assign(to: \.data, on: self)
+        }
     }
 }

@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import CoreServicePackage
 
 struct CustomTabBarView: View {
-    @EnvironmentObject var navigationService: NavigationService
+    @Resolved var navigationService: NavigationProtocol
     @ObservedObject var model: CustomTabBarModel
     @State var showView: Bool = false
 

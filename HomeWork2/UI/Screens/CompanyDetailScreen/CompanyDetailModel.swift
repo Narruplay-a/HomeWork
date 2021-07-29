@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreServicePackage
 
 final class CompanyDetailModel: ObservableObject {
     @Published var company: Company

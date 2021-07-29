@@ -7,14 +7,16 @@
 
 import SwiftUI
 import CSV
+import CoreServicePackage
 
 final class CalendarModel: ObservableObject {
+    @Resolved var apiService: ApiServiceProtocol
     @Published var ipoData: [IPOData]   = .init()
     
     func requestData() {
         guard ipoData.count == 0 else { return }
 
-        AlphaVantageRequests.getIPOCalendar { [weak self] data, error in
+        apiService.getIPOCalendar { [weak self] data, error in
             guard let self = self, let data = data else { return }
             
             let stream = InputStream(data: data)

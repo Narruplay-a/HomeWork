@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import CoreServicePackage
 
 struct CalendarScreen: View {
     @ObservedObject var model: CalendarModel
-    @EnvironmentObject var navigationService: NavigationService
+    @Resolved var navigationService: NavigationProtocol
     
     var body: some View {
         VStack(spacing: 0) {

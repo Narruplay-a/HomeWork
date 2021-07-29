@@ -7,8 +7,9 @@
 
 import SwiftUI
 import Combine
+import CoreServicePackage
 
-final class CustomTabBarModel: ObservableObject {
+final class CustomTabBarModel: ObservableObject, NavigationTabModelProtocol {
     var viewToPresentSubject: PassthroughSubject = PassthroughSubject<AnyView?, Never>()
     var viewToPresent: AnyView?
     

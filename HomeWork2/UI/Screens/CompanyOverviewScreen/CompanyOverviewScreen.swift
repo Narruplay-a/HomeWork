@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import CoreServicePackage
 
 struct CompanyOverviewScreen: View {
-    @EnvironmentObject var navigationService: NavigationService
-    @EnvironmentObject var storeService: StoreService
+    @Resolved var navigationService: NavigationProtocol
+    @Resolved var storeService: StoreProtocol
     
     @ObservedObject var model: CompanyOverviewModel
     
