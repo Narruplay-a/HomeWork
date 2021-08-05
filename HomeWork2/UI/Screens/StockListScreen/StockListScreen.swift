@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import CoreServicePackage
+import HWUIComponents
 
 struct StockListScreen: View {
     @ObservedObject var model       : StockListModel
@@ -31,7 +32,7 @@ struct StockListScreen: View {
             
             List(model.stockData) { stock in
                 VStack {
-                    StockListItem(stock: stock)
+                    StockListItem(symbol: stock.symbol, name: stock.name, hideFavoriteIcon: false)
                         .onTapGesture {
                             self.navigationService.show(view:
                                                             CompanyOverviewScreen(model: CompanyOverviewModel(symbol: stock.symbol)).anyView)

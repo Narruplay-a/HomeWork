@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreServicePackage
+import HWUIComponents
 
 struct CalendarScreen: View {
     @ObservedObject var model: CalendarModel
@@ -37,7 +38,7 @@ struct CalendarScreen: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 List(model.ipoData) { ipoItemData in
-                    IPOItem(data: ipoItemData)
+                    IPOItem(symbol: ipoItemData.symbol, date: ipoItemData.date)
                 }
                 .padding(.top, 20)
                 .frame(maxHeight: .infinity)

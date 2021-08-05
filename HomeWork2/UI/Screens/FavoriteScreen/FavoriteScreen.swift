@@ -7,11 +7,12 @@
 
 import SwiftUI
 import CoreServicePackage
+import HWUIComponents
 
 struct FavoriteScreen: View {
-    @ObservedObject var model: FavoriteModel
-    @Resolved var navigationService: NavigationProtocol
-    @Resolved var storeService: StoreProtocol
+    @ObservedObject var model       : FavoriteModel
+    @Resolved var navigationService : NavigationProtocol
+    @Resolved var storeService      : StoreProtocol
     
     var body: some View {
         VStack(spacing: 0) {
@@ -39,7 +40,7 @@ struct FavoriteScreen: View {
             VStack(alignment: .leading, spacing: 0) {
                 List {
                     ForEach(model.data, id: \.id) { stock in
-                        StockListItem(stock: stock)
+                        StockListItem(symbol: stock.symbol, name: stock.name, hideFavoriteIcon: false)
                     }.onDelete { offset in
                         storeService.removeFromFavorite(offset)
                     }

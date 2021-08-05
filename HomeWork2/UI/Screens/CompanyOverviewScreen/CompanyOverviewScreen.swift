@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreServicePackage
+import HWUIComponents
 
 struct CompanyOverviewScreen: View {
     @Resolved var navigationService: NavigationProtocol

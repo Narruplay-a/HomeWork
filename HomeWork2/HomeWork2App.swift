@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreServicePackage
+import HWUIComponents
 
 @main
 struct HomeWork2App: App {
@@ -26,20 +27,29 @@ struct HomeWork2App: App {
     
     var body: some Scene {
         WindowGroup {
-            CustomTabBarView(model: CustomTabBarModel(screens: getScreens()))
+            CustomTabBarView(model: getTabBarModel())
         }
     }
 }
 
 private extension HomeWork2App {
+    func getTabBarModel() -> CustomTabBarModel {
+        let model = CustomTabBarModel(screens: getScreens())
+        let navigation: NavigationProtocol = Servicer.shared.resolve()
+        navigation.registerTabBarView(with: model)
+        
+        return model
+    }
+    
     func getScreens() -> [TabScreen] {
         return [getFirstScreen(), getSecondScreen(), getThirdScreen()]
     }
     
     func getFirstScreen() -> TabScreen {
         let contentView = StockListScreen(model: StockListModel())
-
         let navigationView = CustomNavigationView<StockListScreen>(view: contentView.anyView, id: 0)
+        let navigation: NavigationProtocol = Servicer.shared.resolve()
+        navigation.registerNavigationView(with: navigationView.model)
         
         return TabScreen(item: navigationView.anyView, tabItem: StockListScreen.tabItem.anyView)
     }
