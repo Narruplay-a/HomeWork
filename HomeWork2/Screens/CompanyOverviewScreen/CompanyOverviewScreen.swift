@@ -10,10 +10,11 @@ import CoreServicePackage
 import HWUIComponents
 
 struct CompanyOverviewScreen: View {
-    @Resolved var navigationService: NavigationProtocol
-    @Resolved var storeService: StoreProtocol
-    
-    @ObservedObject var model: CompanyOverviewModel
+    @Resolved
+    var navigationService   : NavigationProtocol
+
+    @ObservedObject
+    var viewModel           : CompanyOverviewViewModel
     
     var body: some View {
         ZStack {
@@ -21,7 +22,7 @@ struct CompanyOverviewScreen: View {
                 VStack(alignment: .leading, spacing: 5) {
                     HStack {
                         Spacer()
-                        TickerTempView(name: model.company?.symbol ?? "!")
+                        TickerTempView(name: viewModel.company?.symbol ?? "!")
                         Spacer()
                     }.padding([.bottom, .top], 20)
                     
@@ -29,36 +30,37 @@ struct CompanyOverviewScreen: View {
                     Text("Тикер")
                         .font(.system(size: 12))
                         .foregroundColor(.gray)
-                    Text(model.company?.symbol ?? "")
+                    Text(viewModel.company?.symbol ?? "")
                         .font(.system(size: 14))
                         .padding(.bottom, 15)
                     Text("Наименование")
                         .font(.system(size: 12))
                         .foregroundColor(.gray)
-                    Text(model.company?.name ?? "")
+                    Text(viewModel.company?.name ?? "")
                         .font(.system(size: 14))
                         .padding(.bottom, 15)
                     Text("Страна регистрации")
                         .font(.system(size: 12))
                         .foregroundColor(.gray)
-                    Text(model.company?.country ?? "")
+                    Text(viewModel.company?.country ?? "")
                         .font(.system(size: 14))
                         .padding(.bottom, 15)
                     Text("Описание")
                         .font(.system(size: 12))
                         .foregroundColor(.gray)
-                    Text(model.company?.description ?? "")
+                    Text(viewModel.company?.description ?? "")
                         .font(.system(size: 14))
                 }
                 .padding([.leading, .trailing], 20)
                 .padding(.bottom , 100)
             }
             
-            if let companyEntity = model.company {
+            if let companyEntity = viewModel.company {
                 VStack {
                     Spacer()
                     Button {
-                        self.navigationService.show(view: CompanyDetailScreen(model: CompanyDetailModel(company: companyEntity)).anyView)
+                        self.navigationService.show(view:
+                                                        CompanyDetailScreen(viewModel: CompanyDetailViewModel(company: companyEntity)).anyView)
                     } label: {
                         Text("Детальная информация о компании")
                             .font(.system(size: 16).bold())
@@ -73,19 +75,20 @@ struct CompanyOverviewScreen: View {
             }
         }
         .onAppear {
-            navigationService.updateNavigation(with: model.symbol)
+            navigationService.updateNavigation(with: viewModel.symbol)
             navigationService.hideTabBar()
-            model.loadCompanyData()
+            
+            viewModel.loadCompanyData()
         }
-        .onReceive(model.$isDataLoading) { value in
+        .onReceive(viewModel.$isDataLoading) { value in
             if value {
                 navigationService.present(view: LoadingModal().anyView)
             } else {
                 navigationService.dismiss()
             }
-        }.onReceive(model.$isDataEmpty, perform: { value in
+        }.onReceive(viewModel.$isDataEmpty, perform: { value in
             if value {
-                navigationService.present(view: ErrorModal(shouldShowModal: $model.isDataEmpty).anyView)
+                navigationService.present(view: ErrorModal(shouldShowModal: $viewModel.isDataEmpty).anyView)
             } else {
                 navigationService.dismiss()
             }

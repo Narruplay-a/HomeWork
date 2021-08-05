@@ -10,23 +10,25 @@ import CSV
 import CoreServicePackage
 
 final class CalendarModel: ObservableObject {
-    @Resolved var apiService: ApiServiceProtocol
-    @Published var ipoData: [IPOData]   = .init()
+    @Resolved
+    var apiService: ApiServiceProtocol
     
-    func requestData() {
-        guard ipoData.count == 0 else { return }
-
-        apiService.getIPOCalendar { [weak self] data, error in
-            guard let self = self, let data = data else { return }
+    func requestData(_ callback: @escaping ([IPOData]) -> Void) {
+        apiService.getIPOCalendar { data, error in
+            guard let data = data else { return }
             
             let stream = InputStream(data: data)
             let csv = try! CSVReader(stream: stream, hasHeaderRow: true)
             
+            var tempIPOData: [IPOData] = []
+            
             while let row = csv.next() {
                 if let ipoItem = IPOData(row: row) {
-                    self.ipoData.append(ipoItem)
+                    tempIPOData.append(ipoItem)
                 }
             }
+            
+            callback(tempIPOData)
         }
     }
 }

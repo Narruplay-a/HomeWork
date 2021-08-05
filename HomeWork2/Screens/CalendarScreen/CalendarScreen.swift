@@ -1,25 +1,27 @@
 //
-//  FavoriteScreen.swift
+//  CalendarScreen.swift
 //  HomeWork2
 //
-//  Created by Adel Khaziakhmetov on 19.07.2021.
+//  Created by Adel Khaziakhmetov on 16.07.2021.
 //
 
 import SwiftUI
 import CoreServicePackage
 import HWUIComponents
 
-struct FavoriteScreen: View {
-    @ObservedObject var model       : FavoriteModel
-    @Resolved var navigationService : NavigationProtocol
-    @Resolved var storeService      : StoreProtocol
+struct CalendarScreen: View {
+    @Resolved
+    var navigationService   : NavigationProtocol
+    
+    @ObservedObject
+    var viewModel           : CalendarViewModel
     
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .bottomLeading) {
                 HStack {
                     Spacer()
-                    Text("Избранное")
+                    Text("Календарь IPO")
                         .lineLimit(0)
                         .font(.system(size: 18).bold())
                         .fixedSize(horizontal: false, vertical: false)
@@ -38,27 +40,24 @@ struct FavoriteScreen: View {
             .frame(height: 80)
             
             VStack(alignment: .leading, spacing: 0) {
-                List {
-                    ForEach(model.data, id: \.id) { stock in
-                        StockListItem(symbol: stock.symbol, name: stock.name, hideFavoriteIcon: false)
-                    }.onDelete { offset in
-                        storeService.removeFromFavorite(offset)
-                    }
+                List(viewModel.ipoData) { ipoItemData in
+                    IPOItem(symbol: ipoItemData.symbol, date: ipoItemData.date)
                 }
                 .padding(.top, 20)
+                .frame(maxHeight: .infinity)
             }
-            .frame(maxHeight: .infinity)
-            Spacer()
         }
         .frame(maxHeight: .infinity)
         .ignoresSafeArea()
+        .onAppear {
+            viewModel.requestData()
+        }
     }
     
     static var tabItem: some View {
         VStack {
-            Image(systemName: "star")
-            Text("Избранное")
+            Image(systemName: "calendar")
+            Text("Календарь IPO")
         }
     }
 }
-

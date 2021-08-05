@@ -1,24 +1,27 @@
 //
-//  CalendarScreen.swift
+//  FavoriteScreen.swift
 //  HomeWork2
 //
-//  Created by Adel Khaziakhmetov on 16.07.2021.
+//  Created by Adel Khaziakhmetov on 19.07.2021.
 //
 
 import SwiftUI
 import CoreServicePackage
 import HWUIComponents
 
-struct CalendarScreen: View {
-    @ObservedObject var model: CalendarModel
-    @Resolved var navigationService: NavigationProtocol
+struct FavoriteScreen: View {
+    @Resolved
+    var navigationService   : NavigationProtocol
+    
+    @ObservedObject
+    var viewModel           : FavoriteViewModel
     
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .bottomLeading) {
                 HStack {
                     Spacer()
-                    Text("Календарь IPO")
+                    Text("Избранное")
                         .lineLimit(0)
                         .font(.system(size: 18).bold())
                         .fixedSize(horizontal: false, vertical: false)
@@ -37,24 +40,30 @@ struct CalendarScreen: View {
             .frame(height: 80)
             
             VStack(alignment: .leading, spacing: 0) {
-                List(model.ipoData) { ipoItemData in
-                    IPOItem(symbol: ipoItemData.symbol, date: ipoItemData.date)
+                List {
+                    ForEach(viewModel.data, id: \.id) { stock in
+                        StockListItem(symbol: stock.symbol, name: stock.name, hideFavoriteIcon: true) { _ in }
+                    }.onDelete { offset in
+                        viewModel.removeFromFavorite(offset)
+                    }
                 }
                 .padding(.top, 20)
-                .frame(maxHeight: .infinity)
             }
+            .frame(maxHeight: .infinity)
+            Spacer()
         }
         .frame(maxHeight: .infinity)
         .ignoresSafeArea()
         .onAppear {
-            model.requestData()
+            viewModel.loadData()
         }
     }
     
     static var tabItem: some View {
         VStack {
-            Image(systemName: "calendar")
-            Text("Календарь IPO")
+            Image(systemName: "star")
+            Text("Избранное")
         }
     }
 }
+

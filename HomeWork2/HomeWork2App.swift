@@ -46,7 +46,7 @@ private extension HomeWork2App {
     }
     
     func getFirstScreen() -> TabScreen {
-        let contentView = StockListScreen(model: StockListModel())
+        let contentView = StockListScreen(viewModel: StockListViewModel())
         let navigationView = CustomNavigationView<StockListScreen>(view: contentView.anyView, id: 0)
         let navigation: NavigationProtocol = Servicer.shared.resolve()
         navigation.registerNavigationView(with: navigationView.model)
@@ -55,13 +55,13 @@ private extension HomeWork2App {
     }
     
     func getSecondScreen() -> TabScreen {
-        let contentView = FavoriteScreen(model: FavoriteModel())
+        let contentView = FavoriteScreen(viewModel: FavoriteViewModel())
 
         return TabScreen(item: contentView.anyView, tabItem: FavoriteScreen.tabItem.anyView)
     }
 
     func getThirdScreen() -> TabScreen {
-        let contentView = CalendarScreen(model: CalendarModel())
+        let contentView = CalendarScreen(viewModel: CalendarViewModel())
 
         return TabScreen(item: contentView.anyView, tabItem: CalendarScreen.tabItem.anyView)
     }

@@ -11,15 +11,16 @@ import CoreServicePackage
 import HWUIComponents
 
 struct StockListScreen: View {
-    @ObservedObject var model       : StockListModel
-    
-    @State var reloadList: Bool = false
-    @Resolved var navigationService : NavigationProtocol
-    @Resolved var storeService      : StoreProtocol
+    @Resolved
+    var navigationService   : NavigationProtocol
+    @ObservedObject
+    var viewModel           : StockListViewModel
+    @State
+    var reloadList          : Bool                  = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Picker("", selection: $model.segmentSelectedIndex) {
+            Picker("", selection: $viewModel.segmentSelectedIndex) {
                 Text("США")
                     .font(.system(size: 20))
                     .tag(0)
@@ -30,19 +31,27 @@ struct StockListScreen: View {
             .pickerStyle(SegmentedPickerStyle())
             .padding([.leading, .trailing, .top], 20)
             
-            List(model.stockData) { stock in
+            if !reloadList { EmptyView() }
+            
+            List(viewModel.stockData) { stock in
                 VStack {
-                    StockListItem(symbol: stock.symbol, name: stock.name, hideFavoriteIcon: false)
+                    StockListItem(symbol: stock.symbol,
+                                  name: stock.name,
+                                  hideFavoriteIcon: viewModel.isStockIsFavorite(stock.symbol),
+                                  favoriteCallback: { symbol in
+                                    self.viewModel.addToFavorite(symbol)
+                                    self.reloadList.toggle()
+                                  })
                         .onTapGesture {
                             self.navigationService.show(view:
-                                                            CompanyOverviewScreen(model: CompanyOverviewModel(symbol: stock.symbol)).anyView)
+                                                            CompanyOverviewScreen(viewModel: CompanyOverviewViewModel(symbol: stock.symbol)).anyView)
                         }.onAppear {
-                            if model.stockData.count > 10 && model.stockData.last?.symbol == stock.symbol {
-                                model.requestAdditionalData()
+                            if viewModel.stockData.count > 10 && viewModel.stockData.last?.symbol == stock.symbol {
+                                viewModel.requestData(initial: false)
                             }
                         }
                     
-                    if model.stockData.count > 10 && model.stockData.last?.symbol == stock.symbol {
+                    if viewModel.stockData.count > 10 && viewModel.stockData.last?.symbol == stock.symbol {
                         Text("Загрузка данных..")
                             .padding(.all, 20)
                     }
@@ -55,7 +64,9 @@ struct StockListScreen: View {
         .onAppear {
             navigationService.showTabBar()
             navigationService.updateNavigation(with: "Акции компаний")
-            model.requestInitialData()
+            viewModel.requestData(initial: true)
+            
+            reloadList.toggle()
         }
     }
     

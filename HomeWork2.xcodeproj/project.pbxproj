@@ -27,6 +27,11 @@
 		598DFECE26B2B2C700744664 /* CoreServicePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 598DFECD26B2B2C700744664 /* CoreServicePackage */; };
 		59E1992E26BBF80C000A13C3 /* HWUIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 59E1992D26BBF80C000A13C3 /* HWUIComponents */; };
 		59E1993026BBF8B4000A13C3 /* NavigationModelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E1992F26BBF8B4000A13C3 /* NavigationModelExtension.swift */; };
+		59E1993226BBF96F000A13C3 /* StockListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E1993126BBF96F000A13C3 /* StockListViewModel.swift */; };
+		59E1993426BC03A5000A13C3 /* CompanyOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E1993326BC03A5000A13C3 /* CompanyOverviewViewModel.swift */; };
+		59E1993626BC04EE000A13C3 /* CompanyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E1993526BC04EE000A13C3 /* CompanyDetailViewModel.swift */; };
+		59E1993826BC04FA000A13C3 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E1993726BC04FA000A13C3 /* CalendarViewModel.swift */; };
+		59E1993A26BC0504000A13C3 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E1993926BC0504000A13C3 /* FavoriteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +73,11 @@
 		597FFE75269C9D7800585056 /* HomeWork2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeWork2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		598DFEBF26B2984900744664 /* Servicer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Servicer.swift; sourceTree = "<group>"; };
 		59E1992F26BBF8B4000A13C3 /* NavigationModelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModelExtension.swift; sourceTree = "<group>"; };
+		59E1993126BBF96F000A13C3 /* StockListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockListViewModel.swift; sourceTree = "<group>"; };
+		59E1993326BC03A5000A13C3 /* CompanyOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyOverviewViewModel.swift; sourceTree = "<group>"; };
+		59E1993526BC04EE000A13C3 /* CompanyDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewModel.swift; sourceTree = "<group>"; };
+		59E1993726BC04FA000A13C3 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		59E1993926BC0504000A13C3 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,14 +118,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		597EF26B26A0406000E1C87D /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				597EF26C26A0406700E1C87D /* Screens */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		597EF26C26A0406700E1C87D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				597EF27926A0537D00E1C87D /* StockListScreen.swift */,
+				59E1993126BBF96F000A13C3 /* StockListViewModel.swift */,
 				597EF27B26A0539100E1C87D /* StockListModel.swift */,
 			);
 			path = StockListScreen;
@@ -141,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				597EF27D26A053C500E1C87D /* CompanyOverviewScreen.swift */,
+				59E1993326BC03A5000A13C3 /* CompanyOverviewViewModel.swift */,
 				597EF28326A053E400E1C87D /* CompanyOverviewModel.swift */,
 			);
 			path = CompanyOverviewScreen;
@@ -150,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				597EF27F26A053CF00E1C87D /* CompanyDetailScreen.swift */,
+				59E1993526BC04EE000A13C3 /* CompanyDetailViewModel.swift */,
 				597EF28126A053D900E1C87D /* CompanyDetailModel.swift */,
 			);
 			path = CompanyDetailScreen;
@@ -159,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				597EF29026A17AA900E1C87D /* CalendarScreen.swift */,
+				59E1993726BC04FA000A13C3 /* CalendarViewModel.swift */,
 				597EF29226A17AB100E1C87D /* CalendarModel.swift */,
 			);
 			path = CalendarScreen;
@@ -168,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				597EF29F26A5A2FE00E1C87D /* FavoriteScreen.swift */,
+				59E1993926BC0504000A13C3 /* FavoriteViewModel.swift */,
 				597EF2A126A5A30900E1C87D /* FavoriteModel.swift */,
 			);
 			path = FavoriteScreen;
@@ -195,8 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				598DFEBE26B2982D00744664 /* ServiceLocator */,
-				597EF26B26A0406000E1C87D /* UI */,
 				59383F63269CB65A0001C140 /* Extension */,
+				597EF26C26A0406700E1C87D /* Screens */,
 				597FFE5C269C9D7700585056 /* HomeWork2App.swift */,
 				597FFE60269C9D7800585056 /* Assets.xcassets */,
 				597FFE65269C9D7800585056 /* Info.plist */,
@@ -366,16 +373,21 @@
 				59E1993026BBF8B4000A13C3 /* NavigationModelExtension.swift in Sources */,
 				597EF28026A053CF00E1C87D /* CompanyDetailScreen.swift in Sources */,
 				597EF27E26A053C500E1C87D /* CompanyOverviewScreen.swift in Sources */,
+				59E1993426BC03A5000A13C3 /* CompanyOverviewViewModel.swift in Sources */,
 				597EF28226A053D900E1C87D /* CompanyDetailModel.swift in Sources */,
 				597EF2A026A5A2FE00E1C87D /* FavoriteScreen.swift in Sources */,
 				597EF28626A0560500E1C87D /* SetExtension.swift in Sources */,
+				59E1993626BC04EE000A13C3 /* CompanyDetailViewModel.swift in Sources */,
 				597EF27A26A0537D00E1C87D /* StockListScreen.swift in Sources */,
 				597EF29126A17AA900E1C87D /* CalendarScreen.swift in Sources */,
 				598DFEC026B2984900744664 /* Servicer.swift in Sources */,
+				59E1993826BC04FA000A13C3 /* CalendarViewModel.swift in Sources */,
 				597EF29326A17AB100E1C87D /* CalendarModel.swift in Sources */,
 				59383F65269CB6650001C140 /* ViewExtension.swift in Sources */,
 				597FFE5D269C9D7700585056 /* HomeWork2App.swift in Sources */,
 				597EF28426A053E400E1C87D /* CompanyOverviewModel.swift in Sources */,
+				59E1993A26BC0504000A13C3 /* FavoriteViewModel.swift in Sources */,
+				59E1993226BBF96F000A13C3 /* StockListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
