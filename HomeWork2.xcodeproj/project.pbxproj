@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		59383F65269CB6650001C140 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59383F64269CB6650001C140 /* ViewExtension.swift */; };
 		597EF27A26A0537D00E1C87D /* StockListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF27926A0537D00E1C87D /* StockListScreen.swift */; };
-		597EF27C26A0539100E1C87D /* StockListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF27B26A0539100E1C87D /* StockListModel.swift */; };
+		597EF27C26A0539100E1C87D /* StockListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF27B26A0539100E1C87D /* StockListService.swift */; };
 		597EF27E26A053C500E1C87D /* CompanyOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF27D26A053C500E1C87D /* CompanyOverviewScreen.swift */; };
 		597EF28026A053CF00E1C87D /* CompanyDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF27F26A053CF00E1C87D /* CompanyDetailScreen.swift */; };
-		597EF28226A053D900E1C87D /* CompanyDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF28126A053D900E1C87D /* CompanyDetailModel.swift */; };
-		597EF28426A053E400E1C87D /* CompanyOverviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF28326A053E400E1C87D /* CompanyOverviewModel.swift */; };
+		597EF28226A053D900E1C87D /* CompanyDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF28126A053D900E1C87D /* CompanyDetailService.swift */; };
+		597EF28426A053E400E1C87D /* CompanyOverviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF28326A053E400E1C87D /* CompanyOverviewService.swift */; };
 		597EF28626A0560500E1C87D /* SetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF28526A0560500E1C87D /* SetExtension.swift */; };
 		597EF29126A17AA900E1C87D /* CalendarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF29026A17AA900E1C87D /* CalendarScreen.swift */; };
-		597EF29326A17AB100E1C87D /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF29226A17AB100E1C87D /* CalendarModel.swift */; };
+		597EF29326A17AB100E1C87D /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF29226A17AB100E1C87D /* CalendarService.swift */; };
 		597EF29B26A5933300E1C87D /* CSV in Frameworks */ = {isa = PBXBuildFile; productRef = 597EF29A26A5933300E1C87D /* CSV */; };
 		597EF2A026A5A2FE00E1C87D /* FavoriteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF29F26A5A2FE00E1C87D /* FavoriteScreen.swift */; };
-		597EF2A226A5A30900E1C87D /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF2A126A5A30900E1C87D /* FavoriteModel.swift */; };
+		597EF2A226A5A30900E1C87D /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EF2A126A5A30900E1C87D /* FavoriteService.swift */; };
 		597FFE5D269C9D7700585056 /* HomeWork2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597FFE5C269C9D7700585056 /* HomeWork2App.swift */; };
 		597FFE61269C9D7800585056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 597FFE60269C9D7800585056 /* Assets.xcassets */; };
 		597FFE64269C9D7800585056 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 597FFE63269C9D7800585056 /* Preview Assets.xcassets */; };
@@ -54,16 +54,16 @@
 /* Begin PBXFileReference section */
 		59383F64269CB6650001C140 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		597EF27926A0537D00E1C87D /* StockListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockListScreen.swift; sourceTree = "<group>"; };
-		597EF27B26A0539100E1C87D /* StockListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockListModel.swift; sourceTree = "<group>"; };
+		597EF27B26A0539100E1C87D /* StockListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockListService.swift; sourceTree = "<group>"; };
 		597EF27D26A053C500E1C87D /* CompanyOverviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyOverviewScreen.swift; sourceTree = "<group>"; };
 		597EF27F26A053CF00E1C87D /* CompanyDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailScreen.swift; sourceTree = "<group>"; };
-		597EF28126A053D900E1C87D /* CompanyDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailModel.swift; sourceTree = "<group>"; };
-		597EF28326A053E400E1C87D /* CompanyOverviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyOverviewModel.swift; sourceTree = "<group>"; };
+		597EF28126A053D900E1C87D /* CompanyDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailService.swift; sourceTree = "<group>"; };
+		597EF28326A053E400E1C87D /* CompanyOverviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyOverviewService.swift; sourceTree = "<group>"; };
 		597EF28526A0560500E1C87D /* SetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetExtension.swift; sourceTree = "<group>"; };
 		597EF29026A17AA900E1C87D /* CalendarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreen.swift; sourceTree = "<group>"; };
-		597EF29226A17AB100E1C87D /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
+		597EF29226A17AB100E1C87D /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
 		597EF29F26A5A2FE00E1C87D /* FavoriteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScreen.swift; sourceTree = "<group>"; };
-		597EF2A126A5A30900E1C87D /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
+		597EF2A126A5A30900E1C87D /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
 		597FFE59269C9D7700585056 /* HomeWork2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeWork2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		597FFE5C269C9D7700585056 /* HomeWork2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWork2App.swift; sourceTree = "<group>"; };
 		597FFE60269C9D7800585056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 			children = (
 				597EF27926A0537D00E1C87D /* StockListScreen.swift */,
 				59E1993126BBF96F000A13C3 /* StockListViewModel.swift */,
-				597EF27B26A0539100E1C87D /* StockListModel.swift */,
+				597EF27B26A0539100E1C87D /* StockListService.swift */,
 			);
 			path = StockListScreen;
 			sourceTree = "<group>";
@@ -145,7 +145,7 @@
 			children = (
 				597EF27D26A053C500E1C87D /* CompanyOverviewScreen.swift */,
 				59E1993326BC03A5000A13C3 /* CompanyOverviewViewModel.swift */,
-				597EF28326A053E400E1C87D /* CompanyOverviewModel.swift */,
+				597EF28326A053E400E1C87D /* CompanyOverviewService.swift */,
 			);
 			path = CompanyOverviewScreen;
 			sourceTree = "<group>";
@@ -155,7 +155,7 @@
 			children = (
 				597EF27F26A053CF00E1C87D /* CompanyDetailScreen.swift */,
 				59E1993526BC04EE000A13C3 /* CompanyDetailViewModel.swift */,
-				597EF28126A053D900E1C87D /* CompanyDetailModel.swift */,
+				597EF28126A053D900E1C87D /* CompanyDetailService.swift */,
 			);
 			path = CompanyDetailScreen;
 			sourceTree = "<group>";
@@ -165,7 +165,7 @@
 			children = (
 				597EF29026A17AA900E1C87D /* CalendarScreen.swift */,
 				59E1993726BC04FA000A13C3 /* CalendarViewModel.swift */,
-				597EF29226A17AB100E1C87D /* CalendarModel.swift */,
+				597EF29226A17AB100E1C87D /* CalendarService.swift */,
 			);
 			path = CalendarScreen;
 			sourceTree = "<group>";
@@ -175,7 +175,7 @@
 			children = (
 				597EF29F26A5A2FE00E1C87D /* FavoriteScreen.swift */,
 				59E1993926BC0504000A13C3 /* FavoriteViewModel.swift */,
-				597EF2A126A5A30900E1C87D /* FavoriteModel.swift */,
+				597EF2A126A5A30900E1C87D /* FavoriteService.swift */,
 			);
 			path = FavoriteScreen;
 			sourceTree = "<group>";
@@ -368,13 +368,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				597EF27C26A0539100E1C87D /* StockListModel.swift in Sources */,
-				597EF2A226A5A30900E1C87D /* FavoriteModel.swift in Sources */,
+				597EF27C26A0539100E1C87D /* StockListService.swift in Sources */,
+				597EF2A226A5A30900E1C87D /* FavoriteService.swift in Sources */,
 				59E1993026BBF8B4000A13C3 /* NavigationModelExtension.swift in Sources */,
 				597EF28026A053CF00E1C87D /* CompanyDetailScreen.swift in Sources */,
 				597EF27E26A053C500E1C87D /* CompanyOverviewScreen.swift in Sources */,
 				59E1993426BC03A5000A13C3 /* CompanyOverviewViewModel.swift in Sources */,
-				597EF28226A053D900E1C87D /* CompanyDetailModel.swift in Sources */,
+				597EF28226A053D900E1C87D /* CompanyDetailService.swift in Sources */,
 				597EF2A026A5A2FE00E1C87D /* FavoriteScreen.swift in Sources */,
 				597EF28626A0560500E1C87D /* SetExtension.swift in Sources */,
 				59E1993626BC04EE000A13C3 /* CompanyDetailViewModel.swift in Sources */,
@@ -382,10 +382,10 @@
 				597EF29126A17AA900E1C87D /* CalendarScreen.swift in Sources */,
 				598DFEC026B2984900744664 /* Servicer.swift in Sources */,
 				59E1993826BC04FA000A13C3 /* CalendarViewModel.swift in Sources */,
-				597EF29326A17AB100E1C87D /* CalendarModel.swift in Sources */,
+				597EF29326A17AB100E1C87D /* CalendarService.swift in Sources */,
 				59383F65269CB6650001C140 /* ViewExtension.swift in Sources */,
 				597FFE5D269C9D7700585056 /* HomeWork2App.swift in Sources */,
-				597EF28426A053E400E1C87D /* CompanyOverviewModel.swift in Sources */,
+				597EF28426A053E400E1C87D /* CompanyOverviewService.swift in Sources */,
 				59E1993A26BC0504000A13C3 /* FavoriteViewModel.swift in Sources */,
 				59E1993226BBF96F000A13C3 /* StockListViewModel.swift in Sources */,
 			);

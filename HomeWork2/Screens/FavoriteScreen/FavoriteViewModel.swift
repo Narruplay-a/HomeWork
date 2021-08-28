@@ -10,10 +10,9 @@ import Combine
 import CoreServicePackage
 
 final class FavoriteViewModel: ObservableObject {
-    var model   : FavoriteModel = FavoriteModel()
-    
+    var model   : FavoriteService   = .init()
     @Published
-    var data    : [Stock]       = []
+    var data    : [Stock]           = []
 
     func loadData() {
         data = model.getFavoriteData()

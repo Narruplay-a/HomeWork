@@ -11,7 +11,7 @@ import Combine
 import CoreServicePackage
 
 final class StockListViewModel: ObservableObject {
-    var model                : StockListModel       = StockListModel()
+    var model                : StockListService     = StockListService()
     
     @Published
     var stockData            : [Stock]              = []

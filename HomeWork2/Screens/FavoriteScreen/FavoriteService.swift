@@ -8,7 +8,7 @@
 import Foundation
 import CoreServicePackage
 
-final class FavoriteModel {
+final class FavoriteService {
     @Resolved
     var storeService        : StoreProtocol
     

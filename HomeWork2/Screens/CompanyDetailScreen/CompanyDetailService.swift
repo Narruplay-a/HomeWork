@@ -5,4 +5,4 @@
 //  Created by Adel Khaziakhmetov on 15.07.2021.
 //
 
-final class CompanyDetailModel { }
+final class CompanyDetailService { }

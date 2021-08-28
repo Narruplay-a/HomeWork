@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 import CoreServicePackage
 
-final class StockListModel: ObservableObject {
+final class StockListService {
     @Resolved
     var apiService          : ApiServiceProtocol
     @Resolved

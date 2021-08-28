@@ -9,7 +9,7 @@ import SwiftUI
 import CSV
 import CoreServicePackage
 
-final class CalendarModel: ObservableObject {
+final class CalendarService {
     @Resolved
     var apiService: ApiServiceProtocol
     

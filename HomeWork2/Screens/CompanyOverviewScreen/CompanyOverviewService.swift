@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreServicePackage
 
-final class CompanyOverviewModel: ObservableObject {
+final class CompanyOverviewService {
     @Resolved var apiService: ApiServiceProtocol
 
     func loadCompanyData(symbol: String, callback: @escaping (Company?) -> Void) {

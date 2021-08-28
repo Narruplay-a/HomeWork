@@ -17,7 +17,7 @@ final class CompanyOverviewViewModel: ObservableObject {
     var isDataEmpty   : Bool                  = false
     
     let symbol        : String
-    let model         : CompanyOverviewModel  = .init()
+    let model         : CompanyOverviewSerice = .init()
     
     init(symbol: String) {
         self.symbol = symbol

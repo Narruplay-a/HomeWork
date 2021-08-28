@@ -10,7 +10,7 @@ import CSV
 import CoreServicePackage
 
 final class CalendarViewModel: ObservableObject {
-    var model: CalendarModel = .init()
+    var model: CalendarService = .init()
     
     @Published
     var ipoData: [IPOData]   = []
