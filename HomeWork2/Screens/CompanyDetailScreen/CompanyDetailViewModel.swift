@@ -9,7 +9,7 @@ import SwiftUI
 import CoreServicePackage
 
 final class CompanyDetailViewModel: ObservableObject {
-    var model   : CompanyDetailSerice = .init()
+    var model   : CompanyDetailService = .init()
     
     @Published
     var company : Company

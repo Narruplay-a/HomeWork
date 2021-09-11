@@ -12,12 +12,12 @@ final class CompanyOverviewViewModel: ObservableObject {
     @Published
     var company       : Company?
     @Published
-    var isDataLoading : Bool                  = true
+    var isDataLoading : Bool                   = true
     @Published
-    var isDataEmpty   : Bool                  = false
+    var isDataEmpty   : Bool                   = false
     
     let symbol        : String
-    let model         : CompanyOverviewSerice = .init()
+    let model         : CompanyOverviewService = .init()
     
     init(symbol: String) {
         self.symbol = symbol
